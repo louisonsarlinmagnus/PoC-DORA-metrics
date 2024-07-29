@@ -25,3 +25,30 @@ For this project, I will use my own "Kubernetes Cluster". This cluster is made o
 | k8s-node-1     | 2 CPU | 2 Go  | 16 Go   |
 | k8s-node-2     | 2 CPU | 2 Go  | 16 Go   |
 | k8s-node-3     | 2 CPU | 2 Go  | 16 Go   |
+
+## k8s dashboard
+
+```bash
+helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+
+helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --create-namespace --namespace kubernetes-dashboard
+```
+
+## Tools
+### Keptn
+
+https://keptn.sh/stable/docs/guides/dora/
+
+This tool can only retrieve data from Kubernetes
+
+### DevLake
+
+https://devlake.apache.org/docs/v1.0/Overview/Introduction
+
+This tool can retrieve data from different source control tools (GitHub, GitLab, Bitbucket, etc.), automation tools (Jenkins, Azure DevOps) but also webhooks.
+
+### Pelorus
+
+https://pelorus.readthedocs.io/en/v2.0.12/GettingStarted/Overview/
+
+Pelorus can retrieve data from OCP (not k8s), Git providers (GitHub, GitLab, Gitea), Azure DevOps and issue tracker (Jira, GitHub, ServiceNow, PagerDuty)
