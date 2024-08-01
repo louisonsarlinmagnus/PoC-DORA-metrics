@@ -1,0 +1,13 @@
+# templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.appName }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      nodePort: {{ .Values.service.nodePort }}
+      protocol: TCP
+  selector:
+    app: {{ .Values.appName }}

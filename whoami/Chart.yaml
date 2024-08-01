@@ -1,0 +1,5 @@
+# Chart.yaml
+apiVersion: v2
+name: whoami
+description: A Helm chart for deploying traefik/whoami
+version: 0.1.0

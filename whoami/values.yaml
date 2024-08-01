@@ -1,0 +1,16 @@
+# values.yaml
+replicaCount: 1
+appName: whoami
+
+image:
+  repository: traefik/whoami
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 80
+  nodePort: 30000
+
+ingress:
+  enabled: false

@@ -1,0 +1,31 @@
+# templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appName }}
+  labels:
+    app: {{ .Values.appName }}
+  annotations:
+    keptn.sh/workload: myAwesomeWorkload
+    keptn.sh/version: myAwesomeWorkloadVersion
+    keptn.sh/app: myAwesomeAppName
+    keptn.sh/container: myAwesomeContainer
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appName }}
+    spec:
+      containers:
+      - name: {{ .Values.appName }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 80
+        args: 
+        - --name=iamfoo
